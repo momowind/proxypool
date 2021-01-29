@@ -12,7 +12,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/Sansui233/proxypool/pkg/tool"
+	"github.com/momowind/proxypool/pkg/tool"
 )
 
 var (
@@ -147,7 +147,7 @@ func ParseVmessLink(link string) (*Vmess, error) {
 	}
 	linkPayload := vmessmix[1]
 	if strings.Contains(linkPayload, "?") {
-		// 使用第二种解析方法 目测是Shadowrocket格式
+		// 使用第二种解析方�? 目测是Shadowrocket格式
 		var infoPayloads []string
 		if strings.Contains(linkPayload, "/?") {
 			infoPayloads = strings.SplitN(linkPayload, "/?", 2)
@@ -294,7 +294,7 @@ func ParseVmessLink(link string) (*Vmess, error) {
 		if vmessJson.Host != "" {
 			switch vmessJson.Net {
 			case "h2":
-				h2Opt.Host = append(h2Opt.Host, vmessJson.Host) // 不知道为空时会不会报错
+				h2Opt.Host = append(h2Opt.Host, vmessJson.Host) // 不知道为空时会不会报�?
 			case "ws":
 				wsHeaders["HOST"] = vmessJson.Host
 			}

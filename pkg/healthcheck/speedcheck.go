@@ -7,8 +7,8 @@ import (
 	"fmt"
 	"github.com/Dreamacro/clash/adapters/outbound"
 	C "github.com/Dreamacro/clash/constant"
-	"github.com/Sansui233/proxypool/log"
-	"github.com/Sansui233/proxypool/pkg/proxy"
+	"github.com/momowind/proxypool/log"
+	"github.com/momowind/proxypool/pkg/proxy"
 	"github.com/ivpusic/grpool"
 	"sort"
 	"strconv"
@@ -136,7 +136,7 @@ func ProxySpeedTest(p proxy.Proxy) (speedResult float64, err error) {
 	if p.TypeName() == "vmess" {
 		pmap["alterId"] = int(pmap["alterId"].(float64))
 		if network, ok := pmap["network"]; ok && network.(string) == "h2" {
-			return 0, nil // todo 暂无方法测试h2的速度，clash对于h2的connection会阻塞
+			return 0, nil // todo 暂无方法测试h2的速度，clash对于h2的connection会阻�?
 		}
 	}
 

@@ -1,16 +1,16 @@
 package app
 
 import (
-	"github.com/Sansui233/proxypool/config"
-	"github.com/Sansui233/proxypool/log"
-	"github.com/Sansui233/proxypool/pkg/healthcheck"
+	"github.com/momowind/proxypool/config"
+	"github.com/momowind/proxypool/log"
+	"github.com/momowind/proxypool/pkg/healthcheck"
 	"sync"
 	"time"
 
-	"github.com/Sansui233/proxypool/internal/cache"
-	"github.com/Sansui233/proxypool/internal/database"
-	"github.com/Sansui233/proxypool/pkg/provider"
-	"github.com/Sansui233/proxypool/pkg/proxy"
+	"github.com/momowind/proxypool/internal/cache"
+	"github.com/momowind/proxypool/internal/database"
+	"github.com/momowind/proxypool/pkg/provider"
+	"github.com/momowind/proxypool/pkg/proxy"
 )
 
 var location, _ = time.LoadLocation("PRC")
@@ -42,7 +42,7 @@ func CrawlGo() {
 		close(pc)
 	}() // Note: 为何并发？可以一边抓取一边读取而非抓完再读
 	// for 用于阻塞goroutine
-	for p := range pc { // Note: pc关闭后不能发送数据可以读取剩余数据
+	for p := range pc { // Note: pc关闭后不能发送数据可以读取剩余数�?
 		if p != nil {
 			proxies = proxies.UniqAppendProxy(p)
 		}
@@ -98,7 +98,7 @@ func CrawlGo() {
 
 	log.Infoln("Usablility checking done. Open %s to check", config.Config.Domain+":"+config.Config.Port)
 
-	// 测速
+	// 测�?
 	speedTestNew(proxies)
 	cache.SetString("clashproxies", provider.Clash{
 		provider.Base{
@@ -115,25 +115,25 @@ func CrawlGo() {
 // Speed test for new proxies
 func speedTestNew(proxies proxy.ProxyList) {
 	if config.Config.SpeedTest {
-		cache.IsSpeedTest = "已开启"
+		cache.IsSpeedTest = "已开�?"
 		if config.Config.Timeout > 0 {
 			healthcheck.SpeedTimeout = time.Second * time.Duration(config.Config.Timeout)
 		}
 		healthcheck.SpeedTestNew(proxies, config.Config.Connection)
 	} else {
-		cache.IsSpeedTest = "未开启"
+		cache.IsSpeedTest = "未开�?"
 	}
 }
 
 // Speed test for all proxies in proxy.ProxyList
 func SpeedTest(proxies proxy.ProxyList) {
 	if config.Config.SpeedTest {
-		cache.IsSpeedTest = "已开启"
+		cache.IsSpeedTest = "已开�?"
 		if config.Config.Timeout > 0 {
 			healthcheck.SpeedTimeout = time.Second * time.Duration(config.Config.Timeout)
 		}
 		healthcheck.SpeedTestAll(proxies, config.Config.Connection)
 	} else {
-		cache.IsSpeedTest = "未开启"
+		cache.IsSpeedTest = "未开�?"
 	}
 }

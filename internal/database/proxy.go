@@ -1,13 +1,13 @@
 package database
 
 import (
-	"github.com/Sansui233/proxypool/log"
-	"github.com/Sansui233/proxypool/pkg/proxy"
+	"github.com/momowind/proxypool/log"
+	"github.com/momowind/proxypool/pkg/proxy"
 	"gorm.io/gorm"
 	"time"
 )
 
-// 设置数据库字段，表名为默认为type名的复数。相比于原作者，不使用软删除特性
+// 设置数据库字段，表名为默认为type名的复数。相比于原作者，不使用软删除特�?
 type Proxy struct {
 	ID        uint `gorm:"primarykey"`
 	CreatedAt time.Time
@@ -24,7 +24,7 @@ func InitTables() {
 			return
 		}
 	}
-	// Warnln: 自动迁移仅仅会创建表，缺少列和索引，并且不会改变现有列的类型或删除未使用的列以保护数据。
+	// Warnln: 自动迁移仅仅会创建表，缺少列和索引，并且不会改变现有列的类型或删除未使用的列以保护数据�?
 	// 如更改表的Column请于数据库中操作
 	err := DB.AutoMigrate(&Proxy{})
 	if err != nil {

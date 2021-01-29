@@ -2,13 +2,13 @@ package provider
 
 import (
 	"fmt"
-	"github.com/Sansui233/proxypool/log"
-	"github.com/Sansui233/proxypool/pkg/healthcheck"
+	"github.com/momowind/proxypool/log"
+	"github.com/momowind/proxypool/pkg/healthcheck"
 	"math"
 	"strconv"
 	"strings"
 
-	"github.com/Sansui233/proxypool/pkg/proxy"
+	"github.com/momowind/proxypool/pkg/proxy"
 )
 
 type Provider interface {
@@ -23,7 +23,7 @@ type Base struct {
 	Speed      string           `yaml:"speed"`
 }
 
-// 根据子类的的Provide()传入的信息筛选节点，结果会改变传入的proxylist。
+// 根据子类的的Provide()传入的信息筛选节点，结果会改变传入的proxylist�?
 func (b *Base) preFilter() {
 	proxies := make(proxy.ProxyList, 0)
 

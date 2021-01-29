@@ -1,10 +1,10 @@
 package provider
 
 import (
-	"github.com/Sansui233/proxypool/pkg/tool"
+	"github.com/momowind/proxypool/pkg/tool"
 	"strings"
 
-	"github.com/Sansui233/proxypool/pkg/proxy"
+	"github.com/momowind/proxypool/pkg/proxy"
 )
 
 // Clash provides functions that make proxies support clash client
@@ -40,7 +40,7 @@ func (c Clash) Provide() string {
 	return resultBuilder.String()
 }
 
-// 检查单个节点的加密方式、协议类型与混淆是否是Clash所支持的
+// 检查单个节点的加密方式、协议类型与混淆是否是Clash所支持�?
 func checkClashSupport(p proxy.Proxy) bool {
 	switch p.TypeName() {
 	case "ssr":

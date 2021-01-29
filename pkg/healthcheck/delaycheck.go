@@ -3,7 +3,7 @@ package healthcheck
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/Sansui233/proxypool/pkg/proxy"
+	"github.com/momowind/proxypool/pkg/proxy"
 	"sync"
 	"time"
 
@@ -15,7 +15,7 @@ import (
 const defaultURLTestTimeout = time.Second * 5
 
 func CleanBadProxiesWithGrpool(proxies []proxy.Proxy) (cproxies []proxy.Proxy) {
-	// Note: Grpool实现对go并发管理的封装，主要是在数据量大时减少内存占用，不会提高效率。
+	// Note: Grpool实现对go并发管理的封装，主要是在数据量大时减少内存占用，不会提高效率�?
 	pool := grpool.NewPool(500, 200)
 
 	c := make(chan *Stat)
@@ -26,7 +26,7 @@ func CleanBadProxiesWithGrpool(proxies []proxy.Proxy) (cproxies []proxy.Proxy) {
 	// 线程：延迟测试，测试过程通过grpool的job并发
 	go func() {
 		for _, p := range proxies {
-			pp := p // 捕获，否则job执行时是按当前的p测试的
+			pp := p // 捕获，否则job执行时是按当前的p测试�?
 			pool.JobQueue <- func() {
 				defer pool.JobDone()
 				delay, err := testDelay(pp)
@@ -70,7 +70,7 @@ func CleanBadProxiesWithGrpool(proxies []proxy.Proxy) (cproxies []proxy.Proxy) {
 			for i, _ := range proxies {
 				if _, ok := okMap[proxies[i].Identifier()]; ok {
 					//cproxies = append(cproxies, p.Clone())
-					cproxies = append(cproxies, proxies[i]) // 返回对GC不友好的指针看会怎么样
+					cproxies = append(cproxies, proxies[i]) // 返回对GC不友好的指针看会怎么�?
 				}
 			}
 			return
@@ -89,7 +89,7 @@ func testDelay(p proxy.Proxy) (delay uint16, err error) {
 	if p.TypeName() == "vmess" {
 		pmap["alterId"] = int(pmap["alterId"].(float64))
 		if network, ok := pmap["network"]; ok && network.(string) == "h2" {
-			return 0, nil // todo 暂无方法测试h2的延迟，clash对于h2的connection会阻塞
+			return 0, nil // todo 暂无方法测试h2的延迟，clash对于h2的connection会阻�?
 		}
 	}
 

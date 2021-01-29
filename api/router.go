@@ -1,8 +1,8 @@
 package api
 
 import (
-	binhtml "github.com/Sansui233/proxypool/internal/bindata/html"
-	"github.com/Sansui233/proxypool/log"
+	binhtml "github.com/momowind/proxypool/internal/bindata/html"
+	"github.com/momowind/proxypool/log"
 	"html/template"
 	"net/http"
 	"os"
@@ -10,9 +10,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Sansui233/proxypool/config"
-	appcache "github.com/Sansui233/proxypool/internal/cache"
-	"github.com/Sansui233/proxypool/pkg/provider"
+	"github.com/momowind/proxypool/config"
+	appcache "github.com/momowind/proxypool/internal/cache"
+	"github.com/momowind/proxypool/pkg/provider"
 	"github.com/gin-contrib/cache"
 	"github.com/gin-contrib/cache/persistence"
 	"github.com/gin-gonic/gin"
@@ -27,12 +27,12 @@ func setupRouter() {
 	gin.SetMode(gin.ReleaseMode)
 	router = gin.New() // 没有任何中间件的路由
 	store := persistence.NewInMemoryStore(time.Minute)
-	router.Use(gin.Recovery(), cache.SiteCache(store, time.Minute)) // 加上处理panic的中间件，防止遇到panic退出程序
+	router.Use(gin.Recovery(), cache.SiteCache(store, time.Minute)) // 加上处理panic的中间件，防止遇到panic退出程�?
 
 	_ = binhtml.RestoreAssets("", "assets/html") // 恢复静态文件（不恢复问题也不大就是难修改）
 	_ = binhtml.RestoreAssets("", "assets/static")
 
-	temp, err := loadHTMLTemplate() // 加载html模板，模板源存放于html.go中的类似_assetsHtmlSurgeHtml的变量
+	temp, err := loadHTMLTemplate() // 加载html模板，模板源存放于html.go中的类似_assetsHtmlSurgeHtml的变�?
 	if err != nil {
 		panic(err)
 	}
@@ -107,7 +107,7 @@ func setupRouter() {
 						Proxies: &proxies,
 					},
 				}
-				text = clash.Provide() // 根据Query筛选节点
+				text = clash.Provide() // 根据Query筛选节�?
 				appcache.SetString("clashproxies", text)
 			}
 		} else if proxyTypes == "all" {
@@ -121,7 +121,7 @@ func setupRouter() {
 					Speed:      proxySpeed,
 				},
 			}
-			text = clash.Provide() // 根据Query筛选节点
+			text = clash.Provide() // 根据Query筛选节�?
 		} else {
 			proxies := appcache.GetProxies("proxies")
 			clash := provider.Clash{
@@ -133,7 +133,7 @@ func setupRouter() {
 					Speed:      proxySpeed,
 				},
 			}
-			text = clash.Provide() // 根据Query筛选节点
+			text = clash.Provide() // 根据Query筛选节�?
 		}
 		c.String(200, text)
 	})

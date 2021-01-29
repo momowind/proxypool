@@ -1,13 +1,13 @@
 package getter
 
 import (
-	"github.com/Sansui233/proxypool/log"
+	"github.com/momowind/proxypool/log"
 	"io/ioutil"
 	"regexp"
 	"sync"
 
-	"github.com/Sansui233/proxypool/pkg/proxy"
-	"github.com/Sansui233/proxypool/pkg/tool"
+	"github.com/momowind/proxypool/pkg/proxy"
+	"github.com/momowind/proxypool/pkg/tool"
 )
 
 func init() {
@@ -87,7 +87,7 @@ const (
 		`(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|` +
 		`(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))`
 
-	// 同时匹配 IP4 和 IP6
+	// 同时匹配 IP4 �? IP6
 	ipPattern = "(" + ip4Pattern + ")|(" + ip6Pattern + ")"
 
 	// 匹配域名
@@ -96,7 +96,7 @@ const (
 	// 匹配 URL
 	urlPattern = `((https|http)?://)?` + // 协议
 		`(([0-9a-zA-Z]+:)?[0-9a-zA-Z_-]+@)?` + // pwd:user@
-		"(" + ipPattern + "|(" + domainPattern + "))" + // IP 或域名
+		"(" + ipPattern + "|(" + domainPattern + "))" + // IP 或域�?
 		`(:\d{1,5})?` + // 端口
 		`(/+[a-zA-Z0-9][a-zA-Z0-9_.-]*)*/*` + // path
 		`(\?([a-zA-Z0-9_-]+(=.*&?)*)*)*` // query

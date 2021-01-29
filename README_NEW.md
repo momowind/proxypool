@@ -69,7 +69,7 @@ Clash客户端支持：
 
 2020-10-26
 - 单独分离出healthcheck模块
-- 分离出用于本地检测proxypool可用性的部分，见[proxypoolCheck](https://github.com/Sansui233/proxypoolCheck)项目
+- 分离出用于本地检测proxypool可用性的部分，见[proxypoolCheck](https://github.com/momowind/proxypoolCheck)项目
 
 2020-10-24
 - Vmess动态格式解析，对链接的字段类型进行强制转换（可以爬到更多节点）
@@ -79,7 +79,7 @@ Clash客户端支持：
 - 忽略vmess的Unmarshal时的ps类型错误
 
 2020-10-21
-- 数据库更新改为保留数据库已有节点与当次有效节点，且清扫失效时间大于7天的节点
+- 数据库更新改为保留数据库已有节点与当次有效节点，且清扫失效时间大�?7天的节点
 - Manually sync to original source v0.3.10
 
 2020-10-10
@@ -89,4 +89,4 @@ Clash客户端支持：
 2020-10-09
 - 增加本地http运行用的配置文件  
   
-    > clash的本地配置文件位于127.0.0.1:8080/clash/localconfig
+    > clash的本地配置文件位�?127.0.0.1:8080/clash/localconfig

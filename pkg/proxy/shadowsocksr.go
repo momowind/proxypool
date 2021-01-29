@@ -10,7 +10,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/Sansui233/proxypool/pkg/tool"
+	"github.com/momowind/proxypool/pkg/tool"
 )
 
 var (
@@ -22,7 +22,7 @@ var (
 	ErrorObfsParamParseFail     = errors.New("obfs param parse failed")
 )
 
-// 字段依据clash的配置设计
+// 字段依据clash的配置设�?
 type ShadowsocksR struct {
 	Base
 	Password      string `yaml:"password" json:"password"`

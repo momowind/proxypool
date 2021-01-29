@@ -10,7 +10,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/Sansui233/proxypool/pkg/tool"
+	"github.com/momowind/proxypool/pkg/tool"
 )
 
 var (
@@ -91,7 +91,7 @@ func ParseSSLink(link string) (*Shadowsocks, error) {
 	cipher := ""
 	password := ""
 	if uri.User.String() == "" {
-		// base64的情况
+		// base64的情�?
 		infos, err := tool.Base64DecodeString(uri.Hostname())
 		if err != nil {
 			return nil, err
