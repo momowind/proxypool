@@ -136,7 +136,7 @@ func ProxySpeedTest(p proxy.Proxy) (speedResult float64, err error) {
 	if p.TypeName() == "vmess" {
 		pmap["alterId"] = int(pmap["alterId"].(float64))
 		if network, ok := pmap["network"]; ok && network.(string) == "h2" {
-			return 0, nil // todo 暂无方法测试h2的速度，clash对于h2的connection会阻�?
+			return 0, nil // todo 暂无方法测试h2的速度，clash对于h2的connection会阻???
 		}
 	}
 

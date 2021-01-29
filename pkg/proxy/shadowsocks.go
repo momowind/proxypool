@@ -91,7 +91,7 @@ func ParseSSLink(link string) (*Shadowsocks, error) {
 	cipher := ""
 	password := ""
 	if uri.User.String() == "" {
-		// base64的情�?
+		// base64的情???
 		infos, err := tool.Base64DecodeString(uri.Hostname())
 		if err != nil {
 			return nil, err

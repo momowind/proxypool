@@ -26,7 +26,7 @@ func InitGeoIpDB() error {
 		}
 		err = bingeoip.RestoreAsset("", "assets/GeoLite2-City.mmdb")
 		if err != nil {
-			log.Println("文件不存在，请自行下�? Geoip2 City库，并保存在", geodb)
+			log.Println("文件不存在，请自行下??? Geoip2 City库，并保存在", geodb)
 			panic(err)
 			return err
 		}
@@ -49,7 +49,7 @@ type CountryEmoji struct {
 
 // new geoip from db file
 func NewGeoIP(geodb, flags string) (geoip GeoIP) {
-	// 运行到这里时geodb只能为存�?
+	// 运行到这里时geodb只能为存???
 	db, err := geoip2.Open(geodb)
 	if err != nil {
 		log.Fatal(err)
@@ -58,7 +58,7 @@ func NewGeoIP(geodb, flags string) (geoip GeoIP) {
 
 	_, err = os.Stat(flags)
 	if err != nil && os.IsNotExist(err) {
-		log.Println("flags 文件不存在，请自行下�? flags.json，并保存�?", flags)
+		log.Println("flags 文件不存在，请自行下??? flags.json，并保存???", flags)
 		os.Exit(1)
 	} else {
 		data, err := ioutil.ReadFile(flags)

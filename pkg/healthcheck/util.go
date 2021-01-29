@@ -49,7 +49,7 @@ func HTTPGetViaProxy(clashProxy C.Proxy, url string) error {
 	if err != nil {
 		return err
 	}
-	conn, err := clashProxy.DialContext(ctx, &addr) // 建立到proxy server的connection，对Proxy的类别做了自适应相当于泛�?
+	conn, err := clashProxy.DialContext(ctx, &addr) // 建立到proxy server的connection，对Proxy的类别做了自适应相当于泛???
 	if err != nil {
 		return err
 	}
@@ -97,7 +97,7 @@ func HTTPHeadViaProxy(clashProxy C.Proxy, url string) error {
 	if err != nil {
 		return err
 	}
-	conn, err := clashProxy.DialContext(ctx, &addr) // 建立到proxy server的connection，对Proxy的类别做了自适应相当于泛�?
+	conn, err := clashProxy.DialContext(ctx, &addr) // 建立到proxy server的connection，对Proxy的类别做了自适应相当于泛???
 	if err != nil {
 		return err
 	}
@@ -145,7 +145,7 @@ func HTTPGetBodyViaProxy(clashProxy C.Proxy, url string) ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
-	conn, err := clashProxy.DialContext(ctx, &addr) // 建立到proxy server的connection，对Proxy的类别做了自适应相当于泛�?
+	conn, err := clashProxy.DialContext(ctx, &addr) // 建立到proxy server的connection，对Proxy的类别做了自适应相当于泛???
 	if err != nil {
 		return nil, err
 	}
@@ -199,7 +199,7 @@ func HTTPGetBodyForSpeedTest(clashProxy C.Proxy, url string, t time.Duration) er
 	if err != nil {
 		return err
 	}
-	conn, err := clashProxy.DialContext(ctx, &addr) // 建立到proxy server的connection，对Proxy的类别做了自适应相当于泛�?
+	conn, err := clashProxy.DialContext(ctx, &addr) // 建立到proxy server的connection，对Proxy的类别做了自适应相当于泛???
 	if err != nil {
 		return err
 	}

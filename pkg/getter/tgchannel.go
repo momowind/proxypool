@@ -59,7 +59,7 @@ func (g *TGChannelGetter) Get() proxy.ProxyList {
 	// 找到所有的文字消息
 	g.c.OnHTML("div.tgme_widget_message_text", func(e *colly.HTMLElement) {
 		g.results = append(g.results, GrepLinksFromString(e.Text)...)
-		// 抓取到http链接，有可能是订阅链接或其他链接，无论如何试一�?
+		// 抓取到http链接，有可能是订阅链接或其他链接，无论如何试一???
 		subUrls := urlRe.FindAllString(e.Text, -1)
 		for _, url := range subUrls {
 			result = append(result, (&Subscribe{Url: url}).Get()...)
@@ -80,7 +80,7 @@ func (g *TGChannelGetter) Get() proxy.ProxyList {
 	}
 	result = append(result, StringArray2ProxyArray(g.results)...)
 
-	// 获取文件(api需要维�?)
+	// 获取文件(api需要维???)
 	resp, err := tool.GetHttpClient().Get(g.apiUrl)
 	if err != nil {
 		return result
@@ -93,7 +93,7 @@ func (g *TGChannelGetter) Get() proxy.ProxyList {
 			elements := strings.Split(s, "\"")
 			for _, e := range elements {
 				if strings.Contains(e, "https://") {
-					// Webfuzz的可能性比较大，也有可能是订阅链接，为了不拖慢运行速度不写�?
+					// Webfuzz的可能性比较大，也有可能是订阅链接，为了不拖慢运行速度不写???
 					result = append(result, (&WebFuzz{Url: e}).Get()...)
 				}
 			}

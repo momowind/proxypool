@@ -9,7 +9,7 @@ import (
 	"github.com/momowind/proxypool/pkg/tool"
 )
 
-// Add key value pair to creatorMap(string â†? creator) in base.go
+// Add key value pair to creatorMap(string ??? creator) in base.go
 func init() {
 	// register to creator map
 	Register("webfuzz", NewWebFuzzGetter)
